@@ -1,0 +1,1411 @@
+<!DOCTYPE html><html><head><title>Vocaroo | ऑनलाइन वॉइस रिकॉर्डर</title><meta name="description" content="Vocaroo is a quick and easy way to share voice messages over the interwebs."><meta name="keywords" content="voice,record,online,sound,upload,send,email,share"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="https://cdn.vocaroo.com/vendor/normalize.min.css"><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.vocaroo.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.vocaroo.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.vocaroo.com/favicon-16x16.png"><link rel="mask-icon" href="https://cdn.vocaroo.com/safari-pinned-tab.svg" color="#CAFF70"><link rel="manifest" href="https://cdn.vocaroo.com/site.webmanifest"><link rel="prefetch" href="https://cdn.vocaroo.com/vendor/mp3worker.js" as="script"><script src="https://rybbit.xzist.org/api/script.js" data-site-id="6aa3aacc33fe" defer="defer"></script><script>var process={env : {"API_URL": "https://vocaroo.com/apps/main-api", "UPLOAD_URLS": "https://upload1.vocaroo.com/apps/main-api/upload,https://upload2.vocaroo.com/apps/main-api/upload", "MEDIA_SHARE_URL": "https://voca.ro/", "MEDIA_EMBED_URL": "https://vocaroo.com/embed/", "MEDIA_MP3_FILE_URL": "https://media.vocaroo.com/mp3/", "MEDIA_MP3_FILE_URL1": "https://media1.vocaroo.com/mp3/", "WWWMAIN": "vocaroo.com", "WWWCDN": "https://cdn.vocaroo.com", "UMAMI_ID": "0a20e078-44b9-4295-94d9-e9aed2fc5764", "APP_WEB_PATH": ""}}</script><script defer="defer" src="https://cdn.vocaroo.com/bundle.f8f0b68782166d564c33.js"></script><style>.DonateAdImg {
+	display: block;
+}
+</style><style>.FooterAd {
+}
+
+.FooterContainer {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	box-sizing: border-box;
+}
+
+.Footer {
+	width: 100%;
+	background-color: #f4fbe8;
+	color: #754c96;
+	padding: 0.5rem;
+	box-sizing: border-box;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.Footer__left {
+	flex: 0;
+}
+
+.Footer__middle {
+	flex: 4;
+	text-align: left;
+}
+
+.Footer__right {
+	flex: 1;
+	text-align: right;
+}
+
+.Footer__activeNavLink:link, .Footer__activeNavLink:visited, .Footer__activeNavLink:hover {
+	color: #754c96;
+	-webkit-text-decoration: none;
+	text-decoration: none;
+}
+
+.Footer__extended {
+	display: none;
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 550px) {
+	.Footer__left {
+		flex: 1;
+	}
+
+	.Footer__middle {
+		text-align: center;
+	}
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 700px) {
+	.Footer__extended {
+		display: inline;
+		display: initial;
+	}
+}
+</style><style>.MiddleContainer {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+.MiddleContainer--centerPointBottom {
+	-webkit-transform: translateY(-100%);
+	        transform: translateY(-100%);
+}
+
+.MiddleContainerUpper {
+	position: absolute;
+	-webkit-transform: translateY(-100%);
+	        transform: translateY(-100%);
+	width: 100%;
+}
+
+.MiddleContainerLower {
+	position: absolute;
+	width: 100%;
+}
+
+.Container {
+	width: 100%;
+	text-align: left;
+	margin: 0.25rem auto;
+}
+
+.Container--nomargins {
+	margin: 0 auto;
+}
+
+.ContentBox {
+	background-color: #CAFF70;
+	padding: 0.6rem;
+	font-size: 0.9333rem;
+	box-shadow: 1px 1px 2px 0px #BECFA3;
+	position: relative; /* added for settings button */
+}
+
+.ContentBox h1 {
+	font-size: larger;
+	margin: 0.25rem;
+	margin-top: 2rem;
+}
+
+.ContentBox h1:first-child {
+	 margin-top: 1rem;
+ }
+
+.ContentBox p {
+	 text-indent: 0.25rem;
+ }
+
+.ContentBox--error {
+	background-color: #ffca9d;
+	box-shadow: 1px 1px 2px 0px #cfb298;
+}
+
+.ContainerBox__header {
+	font-size: 0.9333rem;
+	font-weight: bold;
+	color: #3f3646;
+	margin-left: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.ContainerBox__header--error {
+	color: #e73936;
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 550px) {
+	.MiddleContainer {
+		position: static;
+		top: auto;
+		-webkit-transform: none;
+		        transform: none;
+	}
+
+	.MiddleContainerUpper {
+		position: static;
+		-webkit-transform: none;
+		        transform: none;
+	}
+
+	.MiddleContainerLower {
+		position: static;
+	}
+
+	.Container {
+		width: 500px;
+		margin: 0.5rem auto;
+	}
+
+	.Container--nomargins {
+		margin: 0 auto;
+	}
+
+	.Container--spaced {
+		margin: 2.5rem auto;
+	}
+
+	.Container--shrink {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: auto;
+	}
+
+	.Container--narrow {
+		width: 350px;
+	}
+
+	.ContentBox {
+		border-radius: 6px;
+	}
+}
+</style><style>/* https://github.com/lukehaas/css-loaders */
+.LoadingSpinner__spinner,
+.LoadingSpinner__spinner:after {
+	border-radius: 50%;
+	width: 1em;
+	height: 1em;
+}
+.LoadingSpinner__spinner {
+	margin: 0px auto;
+	position: relative;
+	text-indent: -9999em;
+	box-sizing: border-box;
+	border-top: 0.125em solid rgba(255, 255, 255, 0.3);
+	border-right: 0.125em solid rgba(255, 255, 255, 0.3);
+	border-bottom: 0.125em solid rgba(255, 255, 255, 0.3);
+	border-left: 0.125em solid #ffffff;
+	-webkit-transform: translateZ(0);
+	        transform: translateZ(0);
+	-webkit-animation: LoadingSpinner__load8 1.1s infinite linear;
+	        animation: LoadingSpinner__load8 1.1s infinite linear;
+}
+.LoadingSpinner__spinner--darker {
+	border-top-color: rgba(200, 200, 200, 0.3);
+	border-right-color: rgba(200, 200, 200, 0.3);
+	border-bottom-color: rgba(200, 200, 200, 0.3);
+	border-left-color: #ffffff;
+}
+@-webkit-keyframes LoadingSpinner__load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}
+@keyframes LoadingSpinner__load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}
+</style><style>.PanelButton {
+	text-align: center;
+	margin: 0.75rem 0;
+}
+
+.Button {
+	display: block;
+	font-size: 1rem;
+	margin: 0.25rem;
+}
+
+.Button--small {
+	font-size: 0.66rem;
+}
+
+.Button--smallish {
+	font-size: 0.825rem;
+}
+
+.Button--large {
+	font-size: 1.25rem;
+}
+
+.Button--nomargins {
+	margin: 0;
+}
+
+.Button a:link, .Button a:visited, .Button a:hover {
+	-webkit-text-decoration: none;
+	text-decoration: none;
+	color:#633263;
+}
+
+.Button__button {
+	display: inline-flex; /* May contain loading spinner etc */
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	transition: background-color .25s ease;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+	padding: 0.25em 0.66em;
+	border: none;
+    border-radius: 4px;
+	background-color: #ffffcc;
+	box-shadow: 1px 1px 1px 0px #BECFA3, 0px 2px 3px 0px #BECFA3;
+	color: #633263;
+}
+
+.Button__button:hover {
+	background-color: #dcf1bb;
+}
+
+.Button__button:focus {
+	border: none;
+	outline: none;
+}
+
+.Button__button--darker {
+	background-color: #ebffca;
+}
+
+.Button__button--warning {
+	background-color: #ff8383;
+}
+
+.Button__button--warning:hover {
+	background-color: #e47c7c;
+}
+
+.Button__button--working {
+	background-color: #dcf1bb;
+	cursor: default;
+}
+
+.Button__button--disabled, .Button__button--disabled:hover {
+	background-color: #bbca9e;
+	color: #8c798c;
+	box-shadow: none;
+	cursor: default;
+}
+
+.Button__button--warning.Button__button--working {
+	background-color: #e47c7c;
+}
+
+.Button__buttonItem {
+	margin: 0 0.25em;
+}
+
+.Button__buttonItem:first-child {
+	margin-left: 0;
+}
+
+.Button__buttonItem:last-child {
+	margin-right: 0;
+}
+
+.Button__buttonItem:only-child {
+	margin: 0;
+}
+
+.Button__iconImg {
+	height: 1em;
+}
+
+.FileUploadButton__fileInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+</style><style>.Header {
+}
+
+.Header__imageContainer {
+	position: relative;
+	height: 50px;
+	margin: 3px;
+}
+
+.Header__titleImg {
+	max-height: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.Header__mascotImage {
+	max-height: 100%;
+	position: absolute;
+	right: 0;
+	bottom: -3px;
+}
+
+.Header__textContainer {
+	font-size: 0.8333rem;
+}
+
+.Header__textContainerLonger {
+	display: none;
+}
+
+.HeaderNavButtons {
+	float: right;
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 550px) {
+	.Header {
+		margin-bottom: 3rem;
+	}
+	.Header__textContainerLonger {
+		display: inline;
+		display: initial;
+	}
+}
+
+/* Greater than a certain height screen */
+
+@media (min-height: 600px) {
+	.Header__imageContainer {
+		height: 100px;
+	}
+}
+
+/* A wide and VERY tall screen */
+
+@media (min-width: 550px) and (min-height: 800px) {
+	.Header {
+		margin-top: 15vh;
+	}
+}
+</style><style>.TimeText {
+	color: #989a8b;
+}
+</style><style>.ButtonBubble {
+	position: relative;
+	font-size: 3rem;
+	pointer-events: none;
+}
+
+.ButtonBubble__bubble {
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	border: 2px solid black;
+	border-radius: 50%;
+	box-sizing: border-box;
+	-webkit-animation: ButtonBubble__grow 1s infinite ease-out;
+	        animation: ButtonBubble__grow 1s infinite ease-out;
+}
+
+@-webkit-keyframes ButtonBubble__grow {
+	0% {
+		-webkit-transform: scale(0.75);
+		        transform: scale(0.75);
+		opacity: 0.2;
+	}
+
+	50% {
+		opacity: 0.05;
+	}
+
+	100% {
+		-webkit-transform: scale(2);
+		        transform: scale(2);
+		opacity: 0;
+	}
+}
+
+@keyframes ButtonBubble__grow {
+	0% {
+		-webkit-transform: scale(0.75);
+		        transform: scale(0.75);
+		opacity: 0.2;
+	}
+
+	50% {
+		opacity: 0.05;
+	}
+
+	100% {
+		-webkit-transform: scale(2);
+		        transform: scale(2);
+		opacity: 0;
+	}
+}
+</style><style>.Scrubber {
+	width: 100%; /* fills container */
+	height: 1.5rem;
+	display: flex;
+	cursor: pointer;
+	position: relative;
+}
+
+.Scrubber__pointerArea {
+	width: 100%;
+	height: 200%;
+	position: absolute;
+	-webkit-transform: translateY(-25%);
+	        transform: translateY(-25%);
+	z-index: 100;
+}
+
+.Scrubber__pointerAreaLeft {
+	width: 1rem;
+	height: 100%;
+	position: absolute;
+	-webkit-transform: translateX(-100%);
+	        transform: translateX(-100%);
+	z-index: 100;
+}
+
+.Scrubber__pointerAreaRight {
+	width: 1rem;
+	height: 100%;
+	position: relative;
+	float: right;
+	-webkit-transform: translateX(100%);
+	        transform: translateX(100%);
+	z-index: 100;
+}
+
+.Scrubber__scrubBar {
+	height: 12.5%;
+	width: 100%;
+	background-color: #b5d654;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.Scrubber__scrubBarFill {
+	height: 100%;
+	background-color: #ffffcc;
+}
+
+.Scrubber__scrubHandle {
+	font-size: 1rem;
+	float: right;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%) translateX(50%);
+	        transform: translateY(-50%) translateX(50%);
+}
+</style><style>.Volume {
+	width: 0.25em;
+	height: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	cursor: pointer;
+}
+
+.Volume__pointerArea {
+	width: 200%;
+	height: 125%;
+	position: absolute;
+	-webkit-transform: translate(-25%, -10%);
+	        transform: translate(-25%, -10%);
+	z-index: 100;
+}
+
+.Volume__block {
+	width: 0.2em;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #b5d654;
+}
+
+.Volume__block--selected {
+	background-color: #ffffcc;
+}
+
+.Volume__verticalIcon {
+	width: 0.25em;
+	height: 0.25em;
+	color: #ffffcc;
+}
+</style><style>.Player {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #CAFF70;
+	position: relative;
+	padding: 1rem 0;
+}
+
+/* grow to fit a parent element, useful when embedding in iframe */
+
+.Player--expanded {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border-radius: 6px; /* added for when embedding. Currently that's the only time we use expanded */
+}
+
+.Player__itemContainer {
+	margin: 0 1rem;
+}
+
+.Player__scrubberContainer {
+	flex-grow: 1;
+	min-width: 3rem;
+}
+
+.Player__timeBar {
+	display: flex;
+	justify-content: space-between;
+	color: #abb75b;
+	font-size: 0.75rem;
+}
+
+.Player__button {
+	display: block;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+.Player__button--large {
+	font-size: 3rem;
+}
+
+.Player__spinner {
+	cursor: auto;
+}
+
+.Player__volumeControl {
+	font-size: 2rem;
+}
+
+.Player__volumeControl--large {
+	font-size: 3rem;
+}
+</style><style>.RecorderSettingsButton {
+	display: flex;
+	position: absolute;
+	bottom: 0.25rem;
+	right: 0.5rem;
+	cursor: pointer;
+	color: #c2d067;
+	z-index: 100; /* show above player */
+}
+
+.RecorderSettingsButton__settingsText {
+	color: #abb75b;
+	margin-right: 0.25rem;
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 550px) {
+	.RecorderSettingsButton__settingsText {
+		display: none;
+	}
+}
+</style><style>.HintBubble_container {
+	position: relative;
+	width: 100%;
+	-webkit-animation: 0.5s ease-in HintBubble_fadeIn;
+	        animation: 0.5s ease-in HintBubble_fadeIn;
+}
+
+@-webkit-keyframes HintBubble_fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes HintBubble_fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.HintBubble_container2 {
+	position: absolute;
+	width: 100%;
+}
+
+.HintBubble_container3 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.HintBubble_bubble {
+	position: relative;
+
+	background-color: #f4fbe8;
+	color: #b19bc3;
+	font-size: 1rem;
+	border-radius: 6px;
+
+	padding: 0.75rem;
+	box-sizing: border-box;
+	max-width: 90%;
+}
+
+.HintBubble_bubble:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #f4fbe8;
+	border-top: 0;
+	margin-left: -10px;
+	margin-top: -9px;
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 550px) {
+	.HintBubble_bubble {
+		max-width: 500px;
+	}
+}
+</style><style>.Recorder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Recorder__btnContainer {
+	margin: 1rem;
+}
+
+.Recorder__retryContainer {
+	margin: 0 1rem;
+}
+
+.Recorder__playerContainer {
+	flex-grow: 1;
+}
+
+.Recorder__button {
+	font-size: 4rem;
+	display: block;
+	cursor: pointer;
+}
+
+.Recorder__button:focus {
+	outline: none;
+}
+
+.Recorder__button--smallish {
+	font-size: 3rem;
+}
+
+.Recorder__button--small {
+	font-size: 2rem;
+}
+
+.Recorder__recordButtonOverlay {
+	border-radius: 0.75rem;
+	box-sizing: border-box;
+	width: 4rem;
+	height: 4rem;
+	position: absolute;
+	pointer-events: none;
+	-webkit-animation: color_change 1s infinite alternate;
+	        animation: color_change 1s infinite alternate;
+}
+
+.Recorder__nopointer {
+	cursor: auto;
+}
+
+.Recorder_hintBubbleButton {
+	top: .125em;
+    position: relative;
+}
+
+@-webkit-keyframes color_change {
+	from {background-color: rgba(255,0,0,0);}
+	to {background-color: rgba(255,0,0,0.48);}
+}
+
+@keyframes color_change {
+	from {background-color: rgba(255,0,0,0);}
+	to {background-color: rgba(255,0,0,0.48);}
+}
+</style><style>.SocialShareButtons {
+	margin: 0 0.125rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-grow: 1;
+}
+
+.SocialShareButtons__buttonContainer {
+	display: inline-block;
+	margin: 0.25rem 0.125rem;
+}
+
+.SocialShareButtons__button {
+	cursor: pointer;
+}
+
+.SocialShareButtons__button:hover:not(:active) {
+	opacity: 0.75;
+}
+</style><style>.SharingOptions__rowContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.SharingOptions__shareLinkContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-grow: 100;
+}
+
+.SharingOptions__shareLinkTextInput {
+	flex-grow: 1;
+	display: block;
+	margin: 0.25rem;
+
+	border: none;
+	background-color: #ffffcc;
+	border-radius: 4px;
+	font-size: 1rem;
+	width: 6rem;
+
+	padding: 0.25em 0.5em;
+	padding-left: 0.5em;
+}
+
+.SharingOptions__embedTextArea {
+	height: 4rem;
+	width: 100%;
+	padding: 0.25rem;
+	margin: 0.25rem 0;
+	box-sizing: border-box;
+	background-color: #ffffcc;
+	border: none;
+	resize: none;
+}
+
+/* Greater than a certain width screen */
+
+@media (min-width: 550px) {
+	.SharingOptions__embedTextArea {
+		width: 20rem;
+	}
+}
+</style><style>.ProgressBarWithPercent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ProgressBarWithPercent__label {
+	display: flex;
+	width: 5ch;
+	justify-content: flex-end;
+	margin-left: 0.5rem;
+}
+
+.ProgressBar {
+	height: 0.5rem;
+	display: flex;
+}
+
+.ProgressBar__bar {
+	height: 100%;
+	width: 100%;
+	background-color: #b5d654;
+}
+
+.ProgressBar__barFill {
+	height: 100%;
+	background-color: #ffffcc;
+}
+</style><style>.Uploader {
+	color: #4a4d3c;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-style: italic;
+}
+
+.Uploader__item {
+	margin: 0 0.5rem;
+}
+</style><style>.UploadPanel__fileUploadMessage {
+	margin-top: 0.5rem;
+	font-size: smaller;
+	text-align: center;
+	max-width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style><style>.NotFound {
+	text-align: center;
+}
+
+.NotFound__img {
+	margin: 1rem;
+	width: 100px;
+}
+
+.ViewPanel__GoogleAdHorizontal {
+	display: block;
+	width: 100%;
+	height: 60px;
+}
+
+.ViewPanel__GoogleAdVerticalLeft {
+	display: none;
+	position: fixed;
+	left: 5vw;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+.ViewPanel__GoogleAdVerticalRight {
+	display: none;
+	position: fixed;
+	right: 5vw;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+@media (min-width: 1300px) {
+	.ViewPanel__GoogleAdVerticalLeft {
+		display: block;
+		width: 160px;
+		height: 600px;
+	}
+	.ViewPanel__GoogleAdVerticalRight {
+		display: block;
+		width: 160px;
+		height: 600px;
+	}
+}
+
+@media (min-width: 1500px) {
+	.ViewPanel__GoogleAdVerticalLeft {
+		width: 300px;
+		height: 600px;
+	}
+	.ViewPanel__GoogleAdVerticalRight {
+		width: 300px;
+		height: 600px;
+	}
+}
+</style><style>.HistoryPanel__rowContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+</style><style>.EmbedPanel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #CAFF70;
+	padding: 1rem 0;
+
+	/* fit an iframe when embedded */
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	border-radius: 6px;
+}
+
+.EmbedPanel__left {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	height: 100%;
+	background-color: #c6f579;
+	color: #93b755;
+	border-radius: 6px 0 0 6px;
+
+	cursor: pointer;
+	transition: color .25s ease;
+}
+
+.EmbedPanel__left:hover {
+	color: #a1d646;
+}
+
+.EmbedPanel__robotIcon {
+	height: 2.25rem;
+	padding: 0 0.5rem;
+}
+
+.EmbedPanel__robotIconText {
+	font-size: 0.65rem;
+}
+</style><style>.SubscribeForm {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 1rem 0;
+}
+
+.SubscribeForm input[type=text] {
+	display: block;
+	margin: 0.5rem 0.5rem;
+
+	border: none;
+	background-color: #ffffcc;
+	border-radius: 4px;
+	font-size: 1rem;
+	width: 15rem;
+
+	padding: 0.25em 0.5em;
+	padding-left: 0.5em;
+}
+</style><style>body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 0.8333rem;
+	color: #2D1045;
+}
+
+input {
+	color: #2D1045;
+}
+
+a:link {
+	-webkit-text-decoration: none;
+	text-decoration: none;
+	color:#6600FF;
+}
+
+a:visited {
+	-webkit-text-decoration: none;
+	text-decoration: none;
+	color:#6600FF;
+}
+
+a:hover {
+	-webkit-text-decoration: underline;
+	text-decoration: underline;
+}
+</style><style data-jss="" data-meta="MuiSvgIcon">
+.MuiSvgIcon-root-35 {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary-36 {
+  color: #3f51b5;
+}
+.MuiSvgIcon-colorSecondary-37 {
+  color: #f50057;
+}
+.MuiSvgIcon-colorAction-38 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiSvgIcon-colorError-39 {
+  color: #f44336;
+}
+.MuiSvgIcon-colorDisabled-40 {
+  color: rgba(0, 0, 0, 0.26);
+}
+.MuiSvgIcon-fontSizeInherit-41 {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall-42 {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge-43 {
+  font-size: 2.1875rem;
+}
+</style><style data-jss="" data-meta="MuiPopover">
+.MuiPopover-paper-46 {
+  outline: none;
+  position: absolute;
+  max-width: calc(100% - 32px);
+  min-width: 16px;
+  max-height: calc(100% - 32px);
+  min-height: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+</style><style data-jss="" data-meta="MuiMenu">
+.MuiMenu-paper-44 {
+  max-height: calc(100% - 96px);
+  -webkit-overflow-scrolling: touch;
+}
+.MuiMenu-list-45 {
+  outline: none;
+}
+</style><style data-jss="" data-meta="MuiInputBase">
+.MuiInputBase-root-20 {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: text;
+  display: inline-flex;
+  position: relative;
+  font-size: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.1875em;
+}
+.MuiInputBase-root-20.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+.MuiInputBase-multiline-25 {
+  padding: 6px 0 7px;
+}
+.MuiInputBase-multiline-25.MuiInputBase-marginDense-24 {
+  padding-top: 3px;
+}
+.MuiInputBase-fullWidth-26 {
+  width: 100%;
+}
+.MuiInputBase-input-27 {
+  font: inherit;
+  color: currentColor;
+  width: 100%;
+  border: 0;
+  height: 1.1875em;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  min-width: 0;
+  background: none;
+  box-sizing: content-box;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiInputBase-input-27::-webkit-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input-27::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input-27:-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input-27::-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiInputBase-input-27:focus {
+  outline: 0;
+}
+.MuiInputBase-input-27:invalid {
+  box-shadow: none;
+}
+.MuiInputBase-input-27::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.MuiInputBase-input-27.Mui-disabled {
+  opacity: 1;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27::-webkit-input-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27::-moz-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27:-ms-input-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27::-ms-input-placeholder {
+  opacity: 0 !important;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27:focus::-webkit-input-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27:focus::-moz-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27:focus:-ms-input-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .MuiInputBase-formControl-21 .MuiInputBase-input-27:focus::-ms-input-placeholder {
+  opacity: 0.42;
+}
+.MuiInputBase-inputMarginDense-28 {
+  padding-top: 3px;
+}
+.MuiInputBase-inputSelect-29 {
+  padding-right: 24px;
+}
+.MuiInputBase-inputMultiline-30 {
+  height: auto;
+  resize: none;
+  padding: 0;
+}
+.MuiInputBase-inputTypeSearch-31 {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+</style><style data-jss="" data-meta="MuiInput">
+.MuiInput-root-11 {
+  position: relative;
+}
+label + .MuiInput-formControl-12 {
+  margin-top: 16px;
+}
+.MuiInput-underline-13:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-bottom: 2px solid #303f9f;
+  pointer-events: none;
+}
+.MuiInput-underline-13.Mui-focused:after {
+  transform: scaleX(1);
+}
+.MuiInput-underline-13.Mui-error:after {
+  transform: scaleX(1);
+  border-bottom-color: #f44336;
+}
+.MuiInput-underline-13:before {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "\00a0";
+  position: absolute;
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+}
+.MuiInput-underline-13:hover:not(.Mui-disabled):before {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+}
+.MuiInput-underline-13.Mui-disabled:before {
+  border-bottom-style: dotted;
+}
+@media (hover: none) {
+  .MuiInput-underline-13:hover:not(.Mui-disabled):before {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  }
+}
+</style><style data-jss="" data-meta="MuiSelect">
+.MuiSelect-select-6 {
+  cursor: pointer;
+  min-width: 16px;
+  user-select: none;
+  border-radius: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.MuiSelect-select-6:focus {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.MuiSelect-select-6::-ms-expand {
+  display: none;
+}
+.MuiSelect-select-6.Mui-disabled {
+  cursor: default;
+}
+.MuiSelect-select-6[multiple] {
+  height: auto;
+}
+.MuiSelect-select-6:not([multiple]) option, .MuiSelect-select-6:not([multiple]) optgroup {
+  background-color: #f4fbe8;
+}
+.MuiSelect-outlined-8 {
+  border-radius: 4px;
+}
+.MuiSelect-selectMenu-9 {
+  height: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.MuiSelect-icon-10 {
+  top: calc(50% - 12px);
+  color: rgba(0, 0, 0, 0.54);
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss3 {
+  font-size: 0.8333rem;
+}
+.jss4 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+</style><style data-jss="" data-meta="MuiDialog">
+@media print {
+  .MuiDialog-root {
+    position: absolute !important;
+  }
+}
+.MuiDialog-scrollPaper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.MuiDialog-scrollBody {
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+.MuiDialog-scrollBody:after {
+  width: 0;
+  height: 100%;
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+}
+.MuiDialog-container {
+  height: 100%;
+  outline: none;
+}
+@media print {
+  .MuiDialog-container {
+    height: auto;
+  }
+}
+.MuiDialog-paper {
+  margin: 48px;
+  position: relative;
+  overflow-y: auto;
+}
+@media print {
+  .MuiDialog-paper {
+    box-shadow: none;
+    overflow-y: visible;
+  }
+}
+.MuiDialog-paperScrollPaper {
+  display: flex;
+  max-height: calc(100% - 96px);
+  flex-direction: column;
+}
+.MuiDialog-paperScrollBody {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.MuiDialog-paperWidthFalse {
+  max-width: calc(100% - 96px);
+}
+.MuiDialog-paperWidthXs {
+  max-width: 444px;
+}
+@media (max-width:539.95px) {
+  .MuiDialog-paperWidthXs.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 96px);
+  }
+}
+.MuiDialog-paperWidthSm {
+  max-width: 600px;
+}
+@media (max-width:695.95px) {
+  .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 96px);
+  }
+}
+.MuiDialog-paperWidthMd {
+  max-width: 960px;
+}
+@media (max-width:1055.95px) {
+  .MuiDialog-paperWidthMd.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 96px);
+  }
+}
+.MuiDialog-paperWidthLg {
+  max-width: 1280px;
+}
+@media (max-width:1375.95px) {
+  .MuiDialog-paperWidthLg.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 96px);
+  }
+}
+.MuiDialog-paperWidthXl {
+  max-width: 1920px;
+}
+@media (max-width:2015.95px) {
+  .MuiDialog-paperWidthXl.MuiDialog-paperScrollBody {
+    max-width: calc(100% - 96px);
+  }
+}
+.MuiDialog-paperFullWidth {
+  width: calc(100% - 96px);
+}
+.MuiDialog-paperFullScreen {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+  max-height: none;
+  border-radius: 0;
+}
+.MuiDialog-paperFullScreen.MuiDialog-paperScrollBody {
+  margin: 0;
+  max-width: 100%;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss1 {
+  font-size: 1rem;
+}
+.jss2 {
+  color: #633263;
+  background-color: #ff8383;
+}
+</style><link rel="alternate" hreflang="x-default" href="https://vocaroo.com/" data-react-helmet="true"><link rel="alternate" hreflang="en" href="https://vocaroo.com/" data-react-helmet="true"><link rel="alternate" hreflang="id" href="https://vocaroo.com/?lng=id" data-react-helmet="true"><link rel="alternate" hreflang="de" href="https://vocaroo.com/?lng=de" data-react-helmet="true"><link rel="alternate" hreflang="es-es" href="https://vocaroo.com/?lng=es-es" data-react-helmet="true"><link rel="alternate" hreflang="es-419" href="https://vocaroo.com/?lng=es-419" data-react-helmet="true"><link rel="alternate" hreflang="fr" href="https://vocaroo.com/?lng=fr" data-react-helmet="true"><link rel="alternate" hreflang="it" href="https://vocaroo.com/?lng=it" data-react-helmet="true"><link rel="alternate" hreflang="nl" href="https://vocaroo.com/?lng=nl" data-react-helmet="true"><link rel="alternate" hreflang="pl" href="https://vocaroo.com/?lng=pl" data-react-helmet="true"><link rel="alternate" hreflang="pt-br" href="https://vocaroo.com/?lng=pt-br" data-react-helmet="true"><link rel="alternate" hreflang="tr" href="https://vocaroo.com/?lng=tr" data-react-helmet="true"><link rel="alternate" hreflang="ru" href="https://vocaroo.com/?lng=ru" data-react-helmet="true"><link rel="alternate" hreflang="hi" href="https://vocaroo.com/?lng=hi" data-react-helmet="true"><link rel="alternate" hreflang="ka" href="https://vocaroo.com/?lng=ka" data-react-helmet="true"><link rel="alternate" hreflang="zh-tw" href="https://vocaroo.com/?lng=zh-tw" data-react-helmet="true"><link rel="alternate" hreflang="ja" href="https://vocaroo.com/?lng=ja" data-react-helmet="true"><link rel="alternate" hreflang="ko" href="https://vocaroo.com/?lng=ko" data-react-helmet="true"><meta name="description" content="Vocaroo की मदद से आप तुरंत और आसानी से वॉइस मैसेज शेयर कर सकते हैं। " data-react-helmet="true"></head><body style="text-align:center"><div id="root"><div class="Header"><div class="Container Container--nomargins"><div class="Header__imageContainer"><img src="https://cdn.vocaroo.com/images/titletext-1x.gif" srcset="https://cdn.vocaroo.com/images/titletext-1x.gif, https://cdn.vocaroo.com/images/titletext-2x.gif 2x, https://cdn.vocaroo.com/images/titletext-3x.gif 3x" class="Header__titleImg"><img src="https://cdn.vocaroo.com/images/mascot-male-100px.png" srcset="https://cdn.vocaroo.com/images/mascot-male-100px.png, https://cdn.vocaroo.com/images/mascot-male-200px.png 2x, https://cdn.vocaroo.com/images/mascot-male-300px.png 3x" class="Header__mascotImage"></div></div><div class="Container Container--nomargins"><div class="ContentBox"><div class="HeaderNavButtons"><div class="Button Button--nomargins Button--small"><button class="Button__button" aria-label="go to upload page">​<div class="Button__buttonItem">अपलोड करें</div><div class="Button__buttonItem"><div class="Button__iconImg"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div></div></button></div></div><div class="Header__textContainer"><span class="Header__textContainerLonger">Vocaroo - </span>प्रीमियर वॉयस रिकॉर्डिंग सेवा।</div></div></div></div><div class="MiddleContainer "><div class="Container Container--shrink"><div class="ContentBox"><div role="button" tabindex="0" class="RecorderSettingsButton" title="सेटिंग"><div class="RecorderSettingsButton__settingsText">सेटिंग</div><div style="height: 1.25rem;"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 512 512" fill="currentColor" stroke="none" style="display: block;"><path d="M413.967 276.8c1.06-6.235 1.06-13.518 1.06-20.8s-1.06-13.518-1.06-20.8l44.667-34.318c4.26-3.118 5.319-8.317 2.13-13.518L418.215 115.6c-2.129-4.164-8.507-6.235-12.767-4.164l-53.186 20.801c-10.638-8.318-23.394-15.601-36.16-20.801l-7.448-55.117c-1.06-4.154-5.319-8.318-10.638-8.318h-85.098c-5.318 0-9.577 4.164-10.637 8.318l-8.508 55.117c-12.767 5.2-24.464 12.482-36.171 20.801l-53.186-20.801c-5.319-2.071-10.638 0-12.767 4.164L49.1 187.365c-2.119 4.153-1.061 10.399 2.129 13.518L96.97 235.2c0 7.282-1.06 13.518-1.06 20.8s1.06 13.518 1.06 20.8l-44.668 34.318c-4.26 3.118-5.318 8.317-2.13 13.518L92.721 396.4c2.13 4.164 8.508 6.235 12.767 4.164l53.187-20.801c10.637 8.318 23.394 15.601 36.16 20.801l8.508 55.117c1.069 5.2 5.318 8.318 10.637 8.318h85.098c5.319 0 9.578-4.164 10.638-8.318l8.518-55.117c12.757-5.2 24.464-12.482 36.16-20.801l53.187 20.801c5.318 2.071 10.637 0 12.767-4.164l42.549-71.765c2.129-4.153 1.06-10.399-2.13-13.518l-46.8-34.317zm-158.499 52c-41.489 0-74.46-32.235-74.46-72.8s32.971-72.8 74.46-72.8 74.461 32.235 74.461 72.8-32.972 72.8-74.461 72.8z"></path></svg></div></div><div class="Recorder"><div class="Recorder__btnContainer"><button aria-label="record" class="Recorder__button" style="width: 1em; height: 1em; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: none; padding: 0px; margin: 0px; outline: 0px;"><svg width="1em" height="1em" viewBox="0 0 24 24"><defs><linearGradient id="button-record_svg__a"><stop offset="0" stop-color="#ff5606"></stop><stop offset="1" stop-color="#ad1a0c"></stop></linearGradient><linearGradient id="button-record_svg__b"><stop offset="0" stop-color="#fa0"></stop><stop offset="1" stop-color="#ff4300" stop-opacity="0"></stop></linearGradient><linearGradient id="button-record_svg__c"><stop offset="0" stop-color="#fff" stop-opacity="0"></stop><stop offset="1" stop-color="#fff"></stop></linearGradient><linearGradient xlink:href="#button-record_svg__a" id="button-record_svg__e" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.1728 0 0 .1728 -102.149 394.4)" x1="233.345" y1="407.885" x2="233.345" y2="272.777"></linearGradient><linearGradient xlink:href="#button-record_svg__c" id="button-record_svg__g" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.21152 0 0 .23082 -106.753 381.615)" x1="214.655" y1="325.189" x2="214.655" y2="258.26"></linearGradient><radialGradient xlink:href="#button-record_svg__b" id="button-record_svg__f" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.29898 0 0 .38104 -125.515 313.771)" cx="214.91" cy="390.052" fx="214.91" fy="390.052" r="45.709"></radialGradient><filter id="button-record_svg__d" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="2 2" result="blur"></feGaussianBlur></filter></defs><g transform="matrix(.84917 0 0 .84917 64.096 -372.627)"><circle cx="104.189" cy="309.808" r="13.98" transform="matrix(.84234 0 0 .84234 -149.112 191.977)" fill="#6d7e3d" filter="url(#button-record_svg__d)"></circle><circle r="12" cy="452.878" cx="-61.349" fill="url(#button-record_svg__e)"></circle><ellipse ry="9.6" rx="10.167" cy="454.58" cx="-61.261" fill="url(#button-record_svg__f)"></ellipse><path d="M-52.149 450.909a9.294 7.636 0 01-10.192 6.507 9.294 7.636 0 01-8.279-8.136 9.294 7.636 0 019.603-7.088 9.294 7.636 0 018.963 7.632" fill="url(#button-record_svg__g)"></path><path d="M-61.173 455.596a2.415 2.415 0 002.405-2.41v-5.281a2.415 2.415 0 00-2.405-2.41 2.415 2.415 0 00-2.405 2.41v5.28a2.415 2.415 0 002.405 2.41zm4.249-2.647c0 2.41-2.044 4.097-4.249 4.097-2.204 0-4.249-1.687-4.249-4.097h-1.363c0 2.732 2.165 5.021 4.81 5.383v2.875h1.604v-2.875c2.645-.402 4.81-2.651 4.81-5.383z" fill="#520303" fill-opacity="0.309"></path></g></svg></button></div></div></div></div><div class="HintBubble_container"><div class="HintBubble_container2"><div class="HintBubble_container3"><div class="HintBubble_bubble">रिकॉर्डिंग शुरू करने के लिए कृपया बटन दबाएँ। </div></div></div></div><div class="MiddleContainerLower"></div></div><div class="FooterContainer"><p style="margin: 0.5rem;"><a href="https://ko-fi.com/post/No-Ads-What-Now-S6S11UM51F" target="_blank" style="text-decoration: underline;">No Ads, What Now? A note on audio expiry times.</a></p><div class="Container"><a href="https://ko-fi.com/vocaroo" target="_blank"><img class="DonateAdImg" src="https://cdn.vocaroo.com/images/donate_ad_medium/VocarooDonateAdMedium_ad2_1x.png" srcset="https://cdn.vocaroo.com/images/donate_ad_medium/VocarooDonateAdMedium_ad2_1x.png, https://cdn.vocaroo.com/images/donate_ad_medium/VocarooDonateAdMedium_ad2_2x.png 2x, https://cdn.vocaroo.com/images/donate_ad_medium/VocarooDonateAdMedium_ad2_3x.png 3x" width="100%"></a></div><div class="Footer"><div class="Footer__left"></div><div class="Footer__middle"><span class="Footer__extended">2007-2026 Vocaroo |&nbsp;</span><a href="/about">बारे में</a> |&nbsp;<a href="https://twitter.com/vocaroo" title="Vocaroo से जुड़ी ताज़ा जानकारी और अपडेट्स के लिए Vocaroo को ट्विटर पर फॉलो करें" target="_blank">@vocaroo</a> |&nbsp;<a href="https://xzist.org" title="The Vocaroo developer's personal website. Warning, may contain rabbits." target="_blank">xzist.org</a></div><div class="Footer__right"><div><div class="MuiInputBase-root-20 MuiInput-root-11 MuiInput-underline-13 MuiInputBase-adornedStart-22"><svg class="MuiSvgIcon-root-35 MuiSvgIcon-fontSizeInherit-41" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation" style="margin-right: 0.25em;"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg><div class="MuiSelect-root-5 jss3 MuiSelect-select-6 jss4 MuiSelect-selectMenu-9 MuiInputBase-input-27 MuiInput-input-16 MuiInputBase-inputSelect-29 MuiInputBase-inputAdornedStart-32" tabindex="0" role="button" aria-haspopup="listbox">HI</div><input type="hidden" value="hi" style=""><svg class="MuiSvgIcon-root-35 MuiSelect-icon-10" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M7 10l5 5 5-5z"></path></svg></div></div></div></div></div></div></body></html>
